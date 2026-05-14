@@ -1,0 +1,183 @@
+/* APP Overall Container*/
+
+.app-container {
+  min-height: 100vh;
+}
+
+/* HEADER View */
+
+.header {
+  height: 80px;
+
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 80px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.logo-link {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.saved-link {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* HOME PAGE */
+
+.home-page {
+  padding: 50px 80px;
+}
+
+/* COUNTRIES GRID View*/
+
+.countries-container {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(240px, 1fr)
+  );
+
+  gap: 60px;
+
+  justify-items: center;
+}
+
+/* COUNTRY CARD View*/
+
+.country-card {
+  width: 240px;
+
+  background-color: #ffffff;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 7.5px rgba(0, 0, 0, 0.75);
+
+
+  transition: transform 0.2s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-5px);
+}
+
+/* FLAG IMAGE Size and View*/
+
+.flag-image {
+  width: 100%;
+  height: 160px;
+
+  object-fit: cover;
+}
+
+/* CARD CONTENT Layout*/
+
+.card-content {
+  padding: 24px 20px 35px;
+}
+
+.country-name {
+  margin-bottom: 18px;
+
+  font-size: 1.1rem;
+
+  font-weight: 800;
+}
+
+.card-content p {
+  margin-bottom: 8px;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+}
+
+/* PLACEHOLDER PAGE */
+
+.placeholder-page {
+  padding: 50px 80px;
+}
+
+/* MOBILE RESPONSIVE View*/
+
+@media (max-width: 775px) {
+  .header {
+    height: 70px;
+
+    padding: 0 20px;
+  }
+
+  .logo-link {
+    font-size: 1rem;
+  }
+
+  .saved-link {
+    font-size: 0.85rem;
+  }
+
+  .home-page {
+    padding: 30px 20px;
+  }
+
+  .countries-container {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .country-card {
+    width: 280px;
+  }
+
+  .flag-image {
+    height: 180px;
+  }
+
+  .placeholder-page {
+    padding: 30px 20px;
+  }
+}
+
+.country-detail-page {
+  padding: 3rem;
+}
+
+.detail-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.detail-flag {
+  width: 400px;
+  max-width: 100%;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+
+  .detail-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-flag {
+    width: 100%;
+  }
+}
