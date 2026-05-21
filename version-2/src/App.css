@@ -189,13 +189,21 @@
 .save-country-btn {
   margin-top: 20px;
 
+  /* centers button */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* better sizing */
   padding: 14px 28px;
-  width: 200px; /* makes it wider */
+  min-width: 170px;
 
   font-size: 1rem;
   font-weight: 700;
 
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  /* blush pink */
+  background-color: #e8aeb7;
+
   color: white;
 
   border: none;
@@ -203,15 +211,20 @@
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 
-  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.25);
+  /* softer elegant shadow */
+  box-shadow: 0 6px 15px rgba(232, 174, 183, 0.35);
 }
 
 .save-country-btn:hover {
+
+  /* darker richer blush pink */
+  background-color: #d98f9d;
+
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #3730a3, #4f46e5);
-  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.35);
+
+  box-shadow: 0 10px 20px rgba(217, 143, 157, 0.45);
 }
 /* ------------------ RESPONSIVE ------------------ */
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CountryCard from "../components/CountryCard";
 
 function SavedCountries({ countriesData }) {
 
@@ -281,18 +282,31 @@ useEffect(() => {
 
         <h2>Your Saved Countries</h2>
 
-        {savedCountries.map((country, index) => (
+        <section className="countries-container">
 
-          <div
-            key={index}
-            className="saved-country-card"
-          >
+  {savedCountries.map((savedCountry) => {
 
-            <p>{country.country_name}</p>
+    // Find matching full country object from countriesData
+    const matchingCountry = countriesData.find(
+      (country) =>
+        country.name.common === savedCountry.country_name
+    );
 
-          </div>
+    // If country does not exist, skip rendering
+    if (!matchingCountry) {
+      return null;
+    }
 
-        ))}
+    // Render full reusable country card
+    return (
+      <CountryCard
+        key={matchingCountry.cca3}
+        country={matchingCountry}
+      />
+    );
+  })}
+
+</section>
 
       </section>
 
