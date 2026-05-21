@@ -86,6 +86,8 @@ function SavedCountries({ countriesData }) {
     }
   }
 
+    //---------------// GET //---------------//
+
   // RETRIEVE NEWEST USER
 
 
@@ -96,7 +98,10 @@ function SavedCountries({ countriesData }) {
     try {
 
       const response = await fetch(
-        "/api/get-newest-user"
+        "/api/get-newest-user",
+        {
+        method: "GET", // HTTP method used to retrieve data (GET = read data) in this case Newest User
+      }
       );
 
       const data = await response.json();
@@ -127,7 +132,7 @@ async function getSavedCountries() {
     const response = await fetch(
       "/api/get-all-saved-countries", // API endpoint 
       {
-        method: "GET", // HTTP method used to retrieve data (GET = read data)
+        method: "GET", // HTTP method used to retrieve data (GET = read data) in this case Saved Countries
       }
     );
 
