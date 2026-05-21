@@ -7,6 +7,21 @@
 
 /* ---------------- HEADER ------------------ */
 
+/* SAVED PAGE HEADER */
+
+.saved-page h1,
+.saved-page h2 {
+  text-align: center;
+}
+
+.saved-page h2 {
+  margin-top: 1rem;
+
+  margin-bottom: 2rem;
+
+  color: #d98c9f;
+}
+
 .header {
   height: 80px;
   background-color: #ffffff;
@@ -36,6 +51,52 @@
 
 .saved-link:hover {
   background-color: #f2f2f2;
+}
+
+/* ---------------- SAVED PAGE BACKGROUND ------------------ */
+
+
+/* SAVED PAGE BACKGROUND */
+
+.saved-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  padding: 3rem 2rem;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7fb,
+      #f8f4ff,
+      #eef9ff,
+      #fffaf2,
+      #fdf2f8
+    );
+
+  background-size: 400% 400%;
+
+  animation: pearlFlow 18s ease infinite;
+}
+
+/* IRIDESCENT ANIMATION */
+
+@keyframes pearlShift {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ------------------ HOME PAGE ------------------ */
@@ -97,7 +158,7 @@
   line-height: 1.4;
 }
 
-/* ------------------ SAVED PAGE FORM (IMPORTANT) ------------------ */
+/* ------------------ SAVED PAGE FORM  ------------------ */
 
 .profile-form {
   display: flex;
@@ -122,13 +183,13 @@
   border-radius: 6px;
 }
 
-/* 🔥 LONGER BUTTON (as requested) */
+
 .profile-form button {
   padding: 14px 20px;
   font-size: 1rem;
   font-weight: 700;
 
-  background-color: #4f46e5;
+  background-color: #e893a3;
   color: white;
 
   border: none;
@@ -140,7 +201,7 @@
 }
 
 .profile-form button:hover {
-  background-color: #3730a3;
+  background-color:  #ce596f;
 }
 
 /* ------------------ SAVED COUNTRIES LIST ------------------ */
@@ -187,44 +248,39 @@
 /* ---------------------- SAVE COUNTRY BUTTON ------------------------ */
 
 .save-country-btn {
-  margin-top: 20px;
+  width: 100%;
 
-  /* centers button */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 14px 20px;
 
-  /* better sizing */
-  padding: 14px 28px;
-  min-width: 170px;
+  margin-top: 1rem;
 
-  font-size: 1rem;
-  font-weight: 700;
+  border: none;
 
-  /* blush pink */
-  background-color: #e8aeb7;
+  border-radius: 8px;
+  /* lighter blush pink - main button */
+  background-color: #e893a3;
 
   color: white;
 
-  border: none;
-  border-radius: 8px;
+  font-size: 1rem;
+
+  font-weight: 700;
 
   cursor: pointer;
 
-  transition: all 0.25s ease;
+  transition: background-color 0.2s ease;
 
-  /* softer elegant shadow */
-  box-shadow: 0 6px 15px rgba(232, 174, 183, 0.35);
+  box-shadow: none;
 }
 
 .save-country-btn:hover {
 
   /* darker richer blush pink */
-  background-color: #d98f9d;
+  background-color:  #ce596f;;
 
   transform: translateY(-2px);
 
-  box-shadow: 0 10px 20px rgba(217, 143, 157, 0.45);
+  box-shadow: none;
 }
 /* ------------------ RESPONSIVE ------------------ */
 
