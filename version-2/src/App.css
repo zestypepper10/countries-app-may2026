@@ -105,6 +105,102 @@
   padding: 50px 80px;
 }
 
+
+/* ------------------ SEARCH + FILTERS ------------------ */
+
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 2rem;
+
+  margin-bottom: 3rem;
+
+  flex-wrap: wrap;
+}
+
+/* SEARCH INPUT */
+
+.search-input {
+  width: 420px;
+
+  max-width: 100%;
+
+  padding: 18px 22px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: white;
+
+  font-size: 1rem;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  outline: none;
+}
+
+/* REGION FILTER */
+
+.region-filter {
+  width: 220px;
+
+  padding: 18px 22px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  outline: none;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+  padding: 12px 26px;
+
+  margin-bottom: 4rem;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: #ffffff;
+
+  color: #111517;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+
+  background-color: #e893a3;
+
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+
+
 /* ------------------ COUNTRIES GRID ------------------ */
 
 .countries-container {
@@ -219,6 +315,10 @@
   font-weight: 600;
 }
 
+.heart {
+  margin-left: 8px;
+  font-size: 1rem;
+}
 /* ------------------ COUNTRY DETAIL PAGE ------------------ */
 
 .country-detail-page {
@@ -282,6 +382,13 @@
 
   box-shadow: none;
 }
+
+/* ------------------ UNSAVE BUTTON ------------------ */
+
+.unsave-btn-wrapper {
+  padding: 0 20px 20px 20px;
+}
+
 /* ------------------ RESPONSIVE ------------------ */
 
 @media (max-width: 768px) {
@@ -314,5 +421,22 @@
 
   .profile-form {
     margin: 20px;
+  }
+
+    .filters-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .region-filter {
+    width: 100%;
+  }
+
+  .back-btn {
+    margin-bottom: 2rem;
   }
 }

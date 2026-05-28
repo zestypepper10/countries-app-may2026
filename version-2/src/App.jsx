@@ -1,10 +1,6 @@
 import "./App.css";
 
-import {
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
+import {Routes, Route, Link} from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
@@ -14,39 +10,18 @@ import CountryDetail from "./pages/CountryDetail";
 
 import localData from "../localData";
 
+
+
 function App() {
 
-  // State to store countries data
+  // State that stores all country data used across the app
   const [countriesData, setCountriesData] = useState([]);
-/*
-  // Fetch countries from API
-  async function fetchCountries() {
-    try {
 
-      const response = await fetch(
-        "https://restcountries.com/v3.1/all?fields=name,flags,population,capital,region,cca3,borders"
-      );
+// State that stores globally saved countries (shared with Home + Saved page)
 
-      const data = await response.json();
+  const [savedCountries, setSavedCountries] = useState([]);
 
-      setCountriesData(data);
-
-    } catch (error) {
-
-      console.log("API failed. Using local data.");
-
-      // Fallback data
-      setCountriesData(localData);
-    }
-  }
-
-  // Run fetch on page load
-  useEffect(() => {
-    fetchCountries();
-  }, []);
-*/
-
-// This function is responsible for fetching country data from the REST Countries API
+// Fetches country data from external API with fallback to local data
 // It runs asynchronously because we are waiting for data from an external server, 
 // which is good because it allows for the API to actually come through at a higher rate/probability of actually comming through
 async function fetchCountries() {
@@ -81,6 +56,7 @@ async function fetchCountries() {
 }
 
 // Here I used useEffect 
+// Loads country data once on initial render
 // The empty dependency array [] means this runs ONLY ONCE when the page loads
 useEffect(() => {
 
@@ -93,6 +69,7 @@ useEffect(() => {
   return (
     <div className="app-container">
 
+      {/* Top navigation */}
       <header className="header">
 
         <Link
@@ -118,6 +95,7 @@ useEffect(() => {
           element={
             <Home
               countriesData={countriesData}
+              savedCountries={savedCountries}
             />
           }
         />
@@ -127,6 +105,8 @@ useEffect(() => {
           element={
             <SavedCountries
               countriesData={countriesData}
+              savedCountries={savedCountries}
+              setSavedCountries={setSavedCountries}
             />
           }
         />

@@ -11,7 +11,7 @@ function SavedCountries({ countriesData }) {
     bio: "",
   });
 
-  // State for newest user retrieved from backend
+  // State for latest user retrieved from backend
   const [newestUser, setNewestUser] = useState(null);
 
   // State for saved countries retrieved from backend
@@ -19,7 +19,7 @@ function SavedCountries({ countriesData }) {
 
   // TO HANDLE INPUT CHANGES
 
-  // This function updates form state whenever the user types into an input, select, or textarea field.
+  // This form function dynamically updates form state whenever the user types into an input, select, or textarea field.
   function handleChange(event) {
 
     const { name, value } = event.target;
@@ -35,6 +35,7 @@ function SavedCountries({ countriesData }) {
   
   // STORE FORM DATA
 
+  // Sends user profile to backend 
   async function handleSubmit(event) {
 
     // Prevents page refresh
@@ -91,7 +92,7 @@ function SavedCountries({ countriesData }) {
 
   // RETRIEVE NEWEST USER
 
-
+   // Fetches latest user from backend 
   async function getNewestUser() {
 
     //regular try-await-catch API call
@@ -122,6 +123,7 @@ function SavedCountries({ countriesData }) {
   //---------------// GET //---------------//
   // RETRIEVE SAVED COUNTRIES
   // GET 
+  // Fetches saved countries list
   // This function is asynchronous because it needs to wait for data from the server (we are using the try-await API fetch method)
 async function getSavedCountries() {
 
@@ -158,6 +160,7 @@ async function getSavedCountries() {
   
   // useEffect function
   // useEffect HOOK
+// Loads backend data on mount
 // Runs ONCE when the component first loads (because dependency array is empty)
 useEffect(() => {
     
@@ -284,7 +287,13 @@ useEffect(() => {
 
         <section className="countries-container">
 
-  {savedCountries.map((savedCountry) => {
+  {[...savedCountries]
+
+  .sort((a, b) =>
+    a.country_name.localeCompare(b.country_name)
+  )
+
+  .map((savedCountry) => {
 
     // Find matching full country object from countriesData
     const matchingCountry = countriesData.find(
@@ -297,11 +306,61 @@ useEffect(() => {
       return null;
     }
 
+ // UNSAVE COUNTRY FUNCTION
+      async function unsaveCountry(countryName) {
+
+        try {
+
+          const response = await fetch(
+            "/api/delete-one-country",
+            {
+              method: "DELETE",
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+
+              body: JSON.stringify({
+                country_name: countryName,
+              }),
+            }
+          );
+
+          const data = await response.text();
+
+          console.log(data);
+
+          // UPDATE UI IMMEDIATELY
+          setSavedCountries((previousCountries) =>
+            previousCountries.filter(
+              (savedCountry) =>
+           savedCountry.country_name !== countryName
+            )
+          );
+
+          // REFRESH SAVED COUNTRIES
+
+        } catch (error) {
+
+          console.log("Error unsaving country:", error);
+        }
+      }
+
     // Render full reusable country card
     return (
       <CountryCard
         key={matchingCountry.cca3}
-        country={matchingCountry}
+        country={{
+          ...matchingCountry,
+          isSaved: true
+        } }
+
+          // SHOW UNSAVE BUTTON
+          showUnsaveButton={true}
+
+          // PASS FUNCTION
+          onUnsave={unsaveCountry}
+
       />
     );
   })}
@@ -314,4 +373,4 @@ useEffect(() => {
   );
 }
 
-export default SavedCountries;
+export default SavedCountries;  
