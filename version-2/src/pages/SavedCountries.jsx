@@ -157,7 +157,12 @@ async function getSavedCountries() {
   }
 }
 
-  
+     //---------------// POST //---------------//
+
+
+     //this POST request will be to remove ONE country from the backend
+
+
   // useEffect function
   // useEffect HOOK
 // Loads backend data on mount

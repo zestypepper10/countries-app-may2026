@@ -31,8 +31,9 @@ async function fetchCountries() {
     // This specific URL only requests the fields the app actually needs:
     // name, flags, population, capital, region, cca3, and borders (though we can request other information)
     const response = await fetch(
-      "https://restcountries.com/v3.1/all?fields=name,flags,population,capital,region,cca3,borders"
-    );
+      //"https://restcountries.com/v3.1/all?fields=name,flags,population,captal,region,cca3,borders"
+    
+    "https://countries.dev/countries");
 
     // Converts the response into JSON format to use it in JS but be able to be understood by a human reading
     const data = await response.json();
