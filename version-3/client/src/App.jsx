@@ -38,6 +38,9 @@ async function fetchCountries() {
     // Converts the response into JSON format to use it in JS but be able to be understood by a human reading
     const data = await response.json();
 
+//temp check  
+console.log(data);
+
     // Store the fetched country data into React state
     // This will trigger a re-render so the UI updates with the new API data
     setCountriesData(data);
@@ -60,6 +63,8 @@ async function fetchCountries() {
 // Loads country data once on initial render
 // The empty dependency array [] means this runs ONLY ONCE when the page loads
 useEffect(() => {
+
+
 
   // Calls the function to fetch countries as soon as the component mounts/loads
   fetchCountries();

@@ -254,9 +254,9 @@ useEffect(() => {
 
             <option
               key={country.cca3}
-              value={country.name.common}
+              value={country.name}
             >
-              {country.name.common}
+              {country.name}
             </option>
 
           ))}

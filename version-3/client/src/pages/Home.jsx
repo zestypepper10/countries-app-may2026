@@ -13,14 +13,14 @@ function Home({ countriesData, savedCountries = [] }) {
   // SORT COUNTRIES ALPHABETICALLY
   // spread operator prevents original array mutation
   const sortedCountries = [...countriesData].sort((a, b) =>
-    a.name.common.localeCompare(b.name.common)
+    a.name.localeCompare(b.name)
   );
 
   // FILTER COUNTRIES
   const filteredCountries = sortedCountries.filter((country) => {
 
     // SEARCH FILTER
-    const matchesSearch = country.name.common
+    const matchesSearch = country.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
 
@@ -99,12 +99,12 @@ function Home({ countriesData, savedCountries = [] }) {
         {filteredCountries.map((country) => (
           <CountryCard
           // Here we have a unique key for each card
-            key={country.name.common}
+            key={country.name}
              // this is passing the country data as a prop
             country={{
     ...country,
     isSaved: savedCountries?.some(
-      (c) => c.country_name === country.name.common
+      (c) => c.country_name === country.name
     ),
   }}
           />

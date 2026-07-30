@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+
 function CountryCard({ country,
   showUnsaveButton = false,
   onUnsave,
@@ -11,35 +12,36 @@ function CountryCard({ country,
   // This fallback first tries PNG and if it fails it switches to SVG.
   function handleFlagError(event) {
 
-    // If PNG fails, try SVG
-    if (event.target.src !== country.flags.svg) {
+  // If PNG fails, try SVG
+  if (country.flags?.svg && event.target.src !== country.flags.svg) {
 
-      event.target.src = country.flags.svg;
+    event.target.src = country.flags.svg;
 
-    }
   }
+}
 
-
+console.log(country.name);
   return (
 
     <Link
-      to={`/country/${country.cca3}`}
+      to={`/country/${country.name}`}
       className="card-link"
     >
+
 
       <article className="country-card">
 
         <img
-          className="flag-image"
-          src={country.flags.png}
-          alt={country.name.common}
-          onError={handleFlagError}
-        />
+  className="flag-image"
+  src={country.flags?.png}
+  alt={country.name}
+  onError={handleFlagError}
+/>
 
         <div className="card-content">
 
           <h2 className="country-name">
-  {country.name.common}
+  {country.name}
 
   {/* Saved and HEART ICON IF SAVED */}
   {country.isSaved && <span className="heart"> Saved ❤️</span>}
@@ -73,7 +75,7 @@ function CountryCard({ country,
                 // PREVENT LINK NAVIGATION
                 event.preventDefault();
 
-                onUnsave(country.name.common);
+                onUnsave(country.name);
               }}
             >
               Unsave Country

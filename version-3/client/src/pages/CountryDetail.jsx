@@ -15,8 +15,10 @@ function CountryDetail({ countriesData }) {
 
   // Find country by matching URL parameter (cca3 code)
   const country = countriesData.find(
-    (item) => item.cca3 === countryCode
+    (item) => item.name === countryCode
   );
+
+  console.log(countryCode); 
 
   
   // SAVE COUNTRY FUNCTION
@@ -37,7 +39,7 @@ function CountryDetail({ countriesData }) {
           },
 
           body: JSON.stringify({
-            country_name: country.name.common,
+            country_name: country.name,
           }),
         }
       );
@@ -99,7 +101,7 @@ async function updateCountryCount() {
 
           // Sends the selected country's common name as a KEY being sent to the backend.
           // Purpose: To store the selected country's common name under the KEY "country_name".
-          country_name: country.name.common,
+          country_name: country.name,
         }),
       }
     );
@@ -184,7 +186,7 @@ async function updateCountryCount() {
         <img
           className="detail-flag"
           src={country.flags.png}
-          alt={country.name.common}
+          alt={country.name}
           onError={handleFlagError}
         />
 
@@ -192,7 +194,7 @@ async function updateCountryCount() {
 
         <div className="detail-content">
 
-          <h1>{country.name.common}</h1>
+          <h1>{country.name}</h1>
 
           <p>
             <strong>Population:</strong>{" "}
