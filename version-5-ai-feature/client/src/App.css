@@ -1,0 +1,475 @@
+
+/* ----------------  APP CONTAINER ------------------ */
+.app-container {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+/* ---------------- HEADER ------------------ */
+
+/* SAVED PAGE HEADER */
+
+.saved-page h1,
+.saved-page h2 {
+  text-align: center;
+}
+
+.saved-page h2 {
+  margin-top: 1rem;
+
+  margin-bottom: 2rem;
+
+  color: #d98c9f;
+}
+
+.header {
+  height: 80px;
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 80px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.logo-link {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.saved-link {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.saved-link:hover {
+  background-color: #f2f2f2;
+}
+
+/* ---------------- SAVED PAGE BACKGROUND ------------------ */
+
+
+/* SAVED PAGE BACKGROUND */
+
+.saved-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  padding: 3rem 2rem;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7fb,
+      #f8f4ff,
+      #eef9ff,
+      #fffaf2,
+      #fdf2f8
+    );
+
+  background-size: 400% 400%;
+
+  animation: pearlFlow 18s ease infinite;
+}
+
+/* IRIDESCENT ANIMATION */
+
+@keyframes pearlShift {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ------------------ HOME PAGE ------------------ */
+
+.home-page {
+  padding: 50px 80px;
+}
+
+
+/* ------------------ SEARCH + FILTERS ------------------ */
+
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 2rem;
+
+  margin-bottom: 3rem;
+
+  flex-wrap: wrap;
+}
+
+/* SEARCH INPUT */
+
+.search-input {
+  width: 420px;
+
+  max-width: 100%;
+
+  padding: 18px 22px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: white;
+
+  font-size: 1rem;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  outline: none;
+}
+
+/* REGION FILTER */
+
+.region-filter {
+  width: 220px;
+
+  padding: 18px 22px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  outline: none;
+}
+
+/* RANDOM COUNTRY BUTTON */
+
+.random-country-btn {
+  padding: 18px 26px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  /* lighter blush pink - main button */
+  background-color: #e893a3;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.2s ease;
+}
+
+.random-country-btn:hover {
+
+  /* darker richer blush pink */
+  background-color: #ce596f;
+
+  transform: translateY(-2px);
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+  padding: 12px 26px;
+
+  margin-bottom: 4rem;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: #ffffff;
+
+  color: #111517;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+
+  background-color: #e893a3;
+
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+
+
+/* ------------------ COUNTRIES GRID ------------------ */
+
+.countries-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 50px;
+  justify-items: center;
+}
+
+/* ------------------ COUNTRY CARD ------------------ */
+
+.country-card {
+  width: 240px;
+  background-color: #ffffff;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* FLAG */
+.flag-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* CARD CONTENT */
+
+.card-content {
+  padding: 20px;
+}
+
+.country-name {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.card-content p {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ------------------ SAVED PAGE FORM  ------------------ */
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  max-width: 520px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  padding: 14px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+
+.profile-form button {
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+
+  background-color: #e893a3;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.profile-form button:hover {
+  background-color:  #ce596f;
+}
+
+/* ------------------ SAVED COUNTRIES LIST ------------------ */
+
+.saved-country-card {
+  max-width: 520px;
+  margin: 10px auto;
+  padding: 14px 18px;
+
+  background: white;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  font-weight: 600;
+}
+
+.heart {
+  margin-left: 8px;
+  font-size: 1rem;
+}
+/* ------------------ COUNTRY DETAIL PAGE ------------------ */
+
+.country-detail-page {
+  padding: 3rem;
+}
+
+.detail-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.detail-flag {
+  width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+/* ---------------------- SAVE COUNTRY BUTTON ------------------------ */
+
+.save-country-btn {
+  width: 100%;
+
+  padding: 14px 20px;
+
+  margin-top: 1rem;
+
+  border: none;
+
+  border-radius: 8px;
+  /* lighter blush pink - main button */
+  background-color: #e893a3;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+
+  box-shadow: none;
+}
+
+.save-country-btn:hover {
+
+  /* darker richer blush pink */
+  background-color:  #ce596f;;
+
+  transform: translateY(-2px);
+
+  box-shadow: none;
+}
+
+/* ------------------ UNSAVE BUTTON ------------------ */
+
+.unsave-btn-wrapper {
+  padding: 0 20px 20px 20px;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+@media (max-width: 768px) {
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .home-page {
+    padding: 30px 20px;
+  }
+
+  .countries-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .country-card {
+    width: 280px;
+  }
+
+  .detail-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-flag {
+    width: 100%;
+  }
+
+  .profile-form {
+    margin: 20px;
+  }
+
+    .filters-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .region-filter {
+    width: 100%;
+  }
+
+  .back-btn {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,81 @@
+/* GLOBAL View */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY Overall*/
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+
+  background-color: #fafafa;
+
+  color: #111517;
+
+  min-height: 100vh;
+}
+
+/* IMAGES View*/
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* LINKS View*/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.profile-form button {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.country-detail-page {
+  padding: 3rem;
+}
+
+.detail-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.detail-flag {
+  width: 400px;
+  max-width: 100%;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
