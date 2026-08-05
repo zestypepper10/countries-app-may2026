@@ -1,0 +1,261 @@
+==================================
+🧠 VERSION 2 PSEUDO-CODE WORKSHEET
+==================================
+
+This is our WHAT, WHEN, WHERE, HOW framework for working with data:
+
+1. WHAT data should we store & retrieve?
+   What kind of HTTP request do we need to send, and to what API endpoint?
+   If we are sending a POST request, what do we need to send in the request body, and what is the data type?
+   What would we get back in the response, and what is the data t ype?
+
+2. WHEN should we store & retrieve the data?
+   What event or user action is the trigger, such as clicking a button, submitting a form, or loading a page?
+
+3. WHERE does this happen in the code?
+   What component, page or function?
+
+4. HOW do we accomplish this?
+   What steps do we need to take?
+   Do we need to...
+   - make any GET or POST requests to an API endpoint?
+   - render anything in JSX?
+   - make any functions? If so, when would we call those functions?
+   - use any useState or useEffect hooks?
+     Remember: This is pseudo-code. Don't write code yet — just outline the actions in plain language.
+
+✨ YOUR TASK: Fill in the answers to each WHAT/WHEN/WHERE/HOW question below for the 3 pieces of data.
+
+==================================
+📊 FORM DATA
+==================================
+
+========================
+🔶 STORING FORM DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): POST
+API ENDPOINT: /add-one-user
+
+REQUEST BODY DATA TYPE (if applicable): object
+REQUEST BODY (if applicable): 
+
+    {
+      "user_id": 42,
+      "name": "John Smith",
+      "country_name": "Canada",
+      "email": "john@example.com",
+      "bio": "Another bio"
+    }
+
+RESPONSE DATA TYPE: string
+RESPONSE: "Success! User has been added."
+
+❓ WHEN: When the user submits the form.
+
+❓ WHERE: SavedCountries.jsx
+
+❓ HOW:
+Step 1:
+Create state for storing form input values.
+
+Step 2:
+Create a handleChange function to update form state.
+
+Step 3:
+Create a handleSubmit function.
+
+Step 4:
+Inside handleSubmit, make a POST request.
+
+Step 5:
+Send form data inside JSON.stringify().
+
+Step 6:
+Show success message after saving.
+
+
+========================
+🔶 RETRIEVING FORM DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): GET
+API ENDPOINT: get-newest-user
+
+REQUEST BODY DATA TYPE (if applicable): N/A
+REQUEST BODY (if applicable): N/A
+
+RESPONSE DATA TYPE: array with one object
+RESPONSE:
+ [
+    {
+      "user_id": 42,
+      "name": "John Smith",
+      "country_name": "Canada",
+      "email": "john@example.com",
+      "bio": "Another bio"
+    }
+  ]
+
+❓ WHEN: When the user loads the saved countries page
+
+❓ WHERE: saved countries page: SavedCountries.jsx
+
+
+❓ HOW: Step 1:
+Use useEffect with empty dependency array.
+
+Step 2:
+Create async function called getNewestUser.
+
+Step 3:
+Fetch data from provided/backend API.
+
+Step 4:
+Convert response into JSON.
+
+Step 5:
+Store newest user in state.
+
+Step 6:
+Render welcome message in JSX.
+
+
+===================================
+📊 SAVED COUNTRIES DATA
+===================================
+
+========================
+🔶 STORING SAVED COUNTRIES DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): POST
+API ENDPOINT: /save-one-country
+
+REQUEST BODY DATA TYPE (if applicable): object
+
+REQUEST BODY (if applicable): 
+
+{
+  country_name
+}
+
+RESPONSE DATA TYPE: string
+RESPONSE: "Success! The country is saved."
+
+❓ WHEN: When the user clicks the Save Country button.
+
+❓ WHERE: CountryDetail.jsx
+
+❓ HOW:
+Step 1:
+Create saveCountry function.
+
+Step 2:
+Make POST request to backend.
+
+Step 3:
+Send country name in request body.
+
+Step 4:
+Show success message.
+
+========================
+🔶 RETRIEVING SAVED COUNTRIES DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): GET
+
+API ENDPOINT: /get-all-saved-countries
+
+REQUEST BODY DATA TYPE (if applicable): N/A
+REQUEST BODY (if applicable): N/A
+
+RESPONSE DATA TYPE: array
+RESPONSE: 
+[
+  {
+    country_name
+  }
+]
+
+❓ WHEN: When Saved Countries page loads.
+
+
+❓ WHERE: SavedCountries.jsx
+
+
+❓ HOW:
+Step 1:
+Use useEffect with empty dependency array.
+
+Step 2:
+Create async function called getSavedCountries.
+
+Step 3:
+Fetch saved countries from backend.
+
+Step 4:
+Convert response to JSON.
+
+Step 5:
+Store saved countries in state.
+
+Step 6:
+Render saved countries in JSX.
+
+=================================
+📊 COUNTRY COUNTS DATA
+=================================
+
+========================
+🔶 STORING & RETRIEVING COUNTRY COUNTS DATA
+========================
+NOTE: We combine storing & retrieving country counts data into one section because they always happen together. Each time we look up a country’s view count, we also need to increase it and save the new total.
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): POST
+API ENDPOINT: /update-one-country-count
+
+REQUEST BODY DATA TYPE (if applicable): object
+REQUEST BODY (if applicable): 
+
+{
+  country_name
+}
+
+RESPONSE DATA TYPE: object
+
+RESPONSE: 
+{
+  count
+}
+
+❓ WHEN: When a country detail page loads.
+
+
+❓ WHERE: CountryDetail.jsx
+
+
+❓ HOW:
+Step 1:
+Use useEffect when country page loads.
+
+Step 2:
+Create updateCountryCount function.
+
+Step 3:
+Send POST request with country name.
+
+Step 4:
+Convert response into JSON.
+
+Step 5:
+Store updated count in state.
+
+Step 6:
+Render count in JSX.
