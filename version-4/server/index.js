@@ -2,30 +2,24 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import pg from "pg";
-import config from "./config.js";
 
 const app = express();
 
 const Pool = pg.Pool;
 
 const pool = new Pool({
-  connectionString: config.databaseUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
 
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-
-// Home route
 app.get("/", (req, res) => {
   res.send("Countries API Server is running!");
 });
-
 
 // GET newest user
 app.get("/api/get-newest-user", async (req, res) => {
@@ -48,7 +42,6 @@ app.get("/api/get-newest-user", async (req, res) => {
     });
   }
 });
-
 
 // POST add one user
 app.post("/api/add-one-user", async (req, res) => {
@@ -74,7 +67,6 @@ app.post("/api/add-one-user", async (req, res) => {
   }
 });
 
-
 // GET all saved countries
 app.get("/api/get-all-saved-countries", async (req, res) => {
   try {
@@ -94,7 +86,6 @@ app.get("/api/get-all-saved-countries", async (req, res) => {
     });
   }
 });
-
 
 // POST save one country
 app.post("/api/save-one-country", async (req, res) => {
@@ -122,7 +113,6 @@ app.post("/api/save-one-country", async (req, res) => {
   }
 });
 
-
 // POST unsave one country
 app.post("/api/unsave-one-country", async (req, res) => {
   try {
@@ -146,7 +136,6 @@ app.post("/api/unsave-one-country", async (req, res) => {
     });
   }
 });
-
 
 // POST update country view count
 app.post("/api/update-one-country-count", async (req, res) => {
@@ -174,7 +163,6 @@ app.post("/api/update-one-country-count", async (req, res) => {
     });
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
