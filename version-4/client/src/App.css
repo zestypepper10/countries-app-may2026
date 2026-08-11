@@ -212,6 +212,7 @@
 
 /* ------------------ COUNTRY CARD ------------------ */
 
+
 .country-card {
   width: 240px;
   background-color: #ffffff;
@@ -222,7 +223,21 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  overflow-wrap: break-word;
 }
+/*
+.country-card {
+  width: 240px;
+  background-color: #ffffff;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}*/
 
 .country-card:hover {
   transform: translateY(-6px);

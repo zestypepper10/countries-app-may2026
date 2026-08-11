@@ -57,10 +57,8 @@ console.log(country.name);
             {country.region}
           </p>
 
-          <p>
-            <strong>Capital:</strong>{" "}
-            {country.capital?.[0] || "N/A"}
-          </p>
+        <strong>Capital:</strong>{" "}
+          {country.capital || "N/A"}
 
  {/* UNSAVE BUTTON */}
 
