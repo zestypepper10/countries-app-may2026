@@ -208,8 +208,8 @@ async function updateCountryCount() {
 
           <p>
             <strong>Capital:</strong>{" "}
-            {country.capital?.[0] || "N/A"}
-          </p>
+            {country.capital || "N/A"}
+           </p>
 
           <p>
             <strong>Country Code:</strong>{" "}
